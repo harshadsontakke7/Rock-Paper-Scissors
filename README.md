@@ -1,21 +1,43 @@
 # ⚡ Rock Paper Scissors — The Cyber Arena
+
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Deep Learning](https://img.shields.io/badge/AI-Deep_Learning_Neural_Net-00f0ff?style=for-the-badge&logo=google&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 
-An electrifying, responsive web adaptation of the classic **Rock Paper Scissors** showdown with dynamic cyber themes, retro synth sound effects, win streak tracking, and a first-to-10 championship format.
+An electrifying, responsive web adaptation of the classic **Rock Paper Scissors** showdown powered by an **Online Deep Learning Neural Network**, dynamic cyber themes, retro synth sound effects, win streak tracking, and a first-to-10 championship format.
 
 ---
 
 ### 🎮 Live Demo
-> **[👉 Click Here to Play the Live Game on Vercel](https://rock-paper-scissors-mu-hazel.vercel.app/)**  
-> *(Replace `https://your-project-name.vercel.app` with your actual Vercel deployment link!)*
+> **[👉 Click Here to Play the Live Game on Vercel](https://rock-paper-scissors-mu-hazel.vercel.app/)**
+
+---
+
+## 🧠 Deep Learning AI Engine
+
+Unlike simple random bots, this game features an **adaptive, real-time Machine Learning AI** that learns your personal habits and subconscious patterns as you play:
+
+1. **Online Neural Network (Multi-Layer Perceptron):**
+   - Uses a 15-dimensional input vector encoding round history, player moves, bot moves, and win/loss outcomes.
+   - Runs continuous **online backpropagation with Categorical Cross-Entropy loss** after every round, adjusting hidden and output layer weights on the fly.
+2. **Markov N-Gram Sequence Modeling:**
+   - Tracks 1-round and 2-round decision transitions to anticipate sequence repetitions.
+3. **Psychological WSLS Modeling (Win-Stay, Lose-Shift):**
+   - Detects subconscious psychological tendencies (staying on win, shifting on loss or tie).
+4. **Meta-Reasoning (Levels of Thinking):**
+   - Evaluates whether the player is playing directly or anticipating the bot's counter, dynamically picking the highest-performing strategy.
+5. **Real-Time Neural Telemetry HUD:**
+   - Displays live AI anticipation, prediction confidence percentage bar, and cumulative backpropagation weight updates.
+
+The more rounds you play, the smarter and more formidable the bot becomes!
 
 ---
 
 ## 🌟 Key Features
 
+- 🧠 **Deep Learning AI Bot:** Online neural network adapts to your playstyle in real time.
 - 🎨 **Multi-Theme Engine:** Toggle live between 4 aesthetic color themes:
   - ⚡ **Cyber Neon** (Electric cyan & vibrant violet neon)
   - 🌌 **Deep Space** (Cosmic navy & nebula indigo)
@@ -50,9 +72,9 @@ If you are wondering why your Python file (`stone_paper_scissor.py`) isn't runni
 
 ```text
 Rock-Paper-Scissors/
-├── index.html               # Main Web Arena markup & structure
+├── index.html               # Main Web Arena markup & Deep Learning HUD
 ├── style.css                # Multi-theme modern CSS & glassmorphic styling
-├── script.js                # Game engine, Web Audio synth & theme switcher
+├── script.js                # Neural Network AI, Web Audio synth & game engine
 ├── stone.png                # Rock graphic
 ├── paper.png                # Paper graphic
 ├── scissors.png             # Scissors graphic
@@ -93,7 +115,7 @@ No dependencies or build steps required:
 1. Push your latest code to your GitHub repository:
    ```bash
    git add .
-   git commit -m "Upgrade to Cyber Arena theme and update documentation"
+   git commit -m "Add Deep Learning AI engine and telemetry HUD"
    git push origin main
    ```
 2. Go to [Vercel](https://vercel.com/) and sign in with GitHub.
@@ -104,7 +126,7 @@ No dependencies or build steps required:
    - **Root Directory:** `./`
    - Leave build and output settings at their defaults.
 6. Click **Deploy**.
-7. Copy your assigned `.vercel.app` URL and paste it into the **Live Demo** link at the top of this `README.md`!
+7. Vercel automatically deploys every new push to `main`!
 
 ---
 
