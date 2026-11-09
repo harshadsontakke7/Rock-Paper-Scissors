@@ -1,111 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cyber">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101322">
-  <meta name="description" content="Play Rock Paper Scissors against the computer. First to 10 wins!">
-  <title>Rock Paper Scissors — The Arena</title>
+  <meta name="theme-color" content="#0a0b14">
+  <meta name="description" content="Play Rock Paper Scissors in the Cyber Arena! First to 10 wins, featuring multiple themes and sound effects.">
+  <title>Rock Paper Scissors — The Cyber Arena</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- Ambient glow spheres -->
   <div class="ambient ambient-one"></div>
   <div class="ambient ambient-two"></div>
+  <div class="ambient ambient-three"></div>
 
   <main class="app-shell">
+    <!-- Header Topbar -->
     <header class="topbar">
-      <a class="brand" href="#" aria-label="Rock Paper Scissors home">
-        <span class="brand-mark">✊</span>
-        <span>THE <b>ARENA</b></span>
-      </a>
-      <div class="top-pill"><span class="live-dot"></span> LOCAL MATCH</div>
+      <div class="brand">
+        <span class="brand-mark">⚡</span>
+        <div class="brand-text">
+          <span>THE <b>ARENA</b></span>
+          <span class="brand-sub">CYBER SHOWDOWN</span>
+        </div>
+      </div>
+
+      <div class="topbar-controls">
+        <!-- Theme Switcher -->
+        <button id="theme-btn" class="control-btn" title="Change Theme" aria-label="Change Theme">
+          <span class="control-icon" id="theme-icon">🎨</span>
+          <span class="control-label" id="theme-label">Cyber Neon</span>
+        </button>
+
+        <!-- Sound Toggle -->
+        <button id="sound-btn" class="control-btn" title="Toggle Sound" aria-label="Toggle Sound">
+          <span class="control-icon" id="sound-icon">🔊</span>
+          <span class="control-label">Sound</span>
+        </button>
+
+        <!-- Status Pill -->
+        <div class="top-pill">
+          <span class="live-dot"></span>
+          <span>LIVE ARENA</span>
+        </div>
+      </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-      <p class="eyebrow">THE CLASSIC SHOWDOWN</p>
-      <h1>Rock. Paper. <span>Scissors.</span></h1>
-      <p class="subtitle">One opponent. Three choices. First to 10 takes the crown.</p>
+      <div class="hero-badge">⚡ FIRST TO 10 WINS</div>
+      <h1>ROCK &bull; PAPER &bull; <span>SCISSORS</span></h1>
+      <p class="subtitle">Outsmart the computer in a high-stakes duel. Choose wisely.</p>
     </section>
 
+    <!-- Scoreboard Card -->
     <section class="match-card" aria-label="Match scoreboard">
-      <div class="score-side">
+      <div class="score-side player-side">
         <div class="avatar player-avatar">YOU</div>
         <p class="score-name">PLAYER</p>
         <div class="score-number" id="player-score">0</div>
-        <div class="score-label">WINS</div>
+        <div class="score-progress-wrap">
+          <div class="score-progress-bar" id="player-progress" style="width: 0%;"></div>
+        </div>
+        <div class="score-label">GOAL: 10 WINS</div>
       </div>
+
       <div class="score-center">
-        <div class="round-label">MATCH SCORE</div>
+        <div class="round-badge">ROUND <span id="round-number">1</span></div>
         <div class="versus">VS</div>
-        <div class="target">FIRST TO <b>10</b></div>
+        <div class="streak-pill" id="streak-pill">
+          🔥 STREAK: <b id="streak-count">0</b>
+        </div>
       </div>
-      <div class="score-side">
+
+      <div class="score-side cpu-side">
         <div class="avatar cpu-avatar">CPU</div>
-        <p class="score-name">COMPUTER</p>
+        <p class="score-name">AI BOT</p>
         <div class="score-number" id="computer-score">0</div>
-        <div class="score-label">WINS</div>
+        <div class="score-progress-wrap">
+          <div class="score-progress-bar" id="cpu-progress" style="width: 0%;"></div>
+        </div>
+        <div class="score-label">GOAL: 10 WINS</div>
       </div>
     </section>
 
+    <!-- Main Game Arena -->
     <section class="arena-card">
       <div class="arena-heading">
         <div>
-          <p class="eyebrow">MAKE YOUR MOVE</p>
-          <h2>Choose your weapon</h2>
+          <p class="eyebrow">BATTLE GROUND</p>
+          <h2>Make Your Move</h2>
         </div>
-        <div class="round-counter">ROUND <b id="round-number">1</b></div>
+        <div class="match-mode-tag">BEST OF 10</div>
       </div>
 
+      <!-- Live Battlefield -->
       <div class="battlefield">
-        <div class="fighter">
-          <span class="fighter-label">YOU</span>
-          <div class="fighter-choice" id="player-choice"><span class="question-mark">?</span></div>
-          <span class="fighter-caption" id="player-caption">Waiting for your move</span>
+        <div class="fighter fighter-player" id="fighter-player-card">
+          <span class="fighter-tag">PLAYER 1</span>
+          <div class="fighter-choice" id="player-choice">
+            <span class="question-mark">?</span>
+          </div>
+          <span class="fighter-caption" id="player-caption">Select weapon</span>
         </div>
-        <div class="battle-divider"><span>VS</span></div>
-        <div class="fighter">
-          <span class="fighter-label">COMPUTER</span>
-          <div class="fighter-choice" id="computer-choice"><span class="question-mark">?</span></div>
-          <span class="fighter-caption" id="computer-caption">Ready to play</span>
+
+        <div class="battle-divider">
+          <div class="divider-line"></div>
+          <span class="vs-glow">VS</span>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="fighter fighter-cpu" id="fighter-cpu-card">
+          <span class="fighter-tag">AI BOT</span>
+          <div class="fighter-choice" id="computer-choice">
+            <span class="question-mark">?</span>
+          </div>
+          <span class="fighter-caption" id="computer-caption">Awaiting move</span>
         </div>
       </div>
 
+      <!-- Result Feedback Banner -->
       <div class="result-banner" id="result-banner" role="status" aria-live="polite">
-        <span class="result-icon">✦</span>
-        <span id="result-text">Pick a move to start the match!</span>
+        <span class="result-icon" id="result-icon">⚡</span>
+        <span id="result-text">Select Rock, Paper, or Scissors below to start!</span>
       </div>
 
+      <!-- Action Choice Buttons -->
       <div class="choices" id="choices">
-        <button class="choice-button" data-choice="rock" type="button">
-          <span class="choice-image"><img src="stone.png" alt="" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')"><span class="fallback-emoji">✊</span></span>
+        <button class="choice-button" data-choice="rock" type="button" aria-label="Choose Rock">
+          <div class="choice-glow"></div>
+          <span class="choice-image">
+            <img src="stone.png" alt="Rock" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')">
+            <span class="fallback-emoji">✊</span>
+          </span>
           <span class="choice-title">Rock</span>
-          <span class="choice-hint">Crushes scissors</span>
+          <span class="choice-hint">Crushes Scissors</span>
         </button>
-        <button class="choice-button" data-choice="paper" type="button">
-          <span class="choice-image"><img src="paper.png" alt="" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')"><span class="fallback-emoji">✋</span></span>
+
+        <button class="choice-button" data-choice="paper" type="button" aria-label="Choose Paper">
+          <div class="choice-glow"></div>
+          <span class="choice-image">
+            <img src="paper.png" alt="Paper" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')">
+            <span class="fallback-emoji">✋</span>
+          </span>
           <span class="choice-title">Paper</span>
-          <span class="choice-hint">Covers rock</span>
+          <span class="choice-hint">Covers Rock</span>
         </button>
-        <button class="choice-button" data-choice="scissors" type="button">
-          <span class="choice-image"><img src="scissors.png" alt="" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')"><span class="fallback-emoji">✌️</span></span>
+
+        <button class="choice-button" data-choice="scissors" type="button" aria-label="Choose Scissors">
+          <div class="choice-glow"></div>
+          <span class="choice-image">
+            <img src="scissors.png" alt="Scissors" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')">
+            <span class="fallback-emoji">✌️</span>
+          </span>
           <span class="choice-title">Scissors</span>
-          <span class="choice-hint">Cuts paper</span>
+          <span class="choice-hint">Cuts Paper</span>
         </button>
       </div>
 
+      <!-- Bottom Control Actions -->
       <div class="bottom-actions">
-        <p id="match-status">Choose a move. Good luck!</p>
-        <button class="reset-button" id="reset-button" type="button">↻ <span>Restart match</span></button>
+        <p id="match-status">Choose a weapon. May the best fighter win!</p>
+        <button class="reset-button" id="reset-button" type="button">
+          <span class="reset-icon">↺</span>
+          <span>Reset Match</span>
+        </button>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-      <span>BUILT FOR THE LOVE OF THE GAME</span>
-      <span>✦ &nbsp; BEST OF THE BATTLE</span>
+      <span>⚡ THE CYBER ARENA &bull; ROCK PAPER SCISSORS</span>
+      <span>DEVELOPED BY <a href="https://github.com/harshadsontakke7" target="_blank" rel="noopener noreferrer">HARSHAD SONTAKKE</a></span>
     </footer>
   </main>
 </body>
