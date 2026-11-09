@@ -11,7 +11,7 @@ An electrifying, responsive web adaptation of the classic **Rock Paper Scissors*
 ---
 
 ### 🎮 Live Demo
-> **[👉 Click Here to Play the Live Game on Vercel](https://your-project-name.vercel.app)**  
+> **[👉 Click Here to Play the Live Game on Vercel](https://rock-paper-scissors-mu-hazel.vercel.app/)**  
 > *(Replace `https://your-project-name.vercel.app` with your actual Vercel deployment link!)*
 
 ---
