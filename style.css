@@ -1,0 +1,105 @@
+:root {
+  color-scheme: dark;
+  --bg: #101322;
+  --panel: rgba(25, 30, 51, .88);
+  --panel-2: #1b2138;
+  --line: rgba(255,255,255,.09);
+  --muted: #929ab6;
+  --text: #f4f5ff;
+  --purple: #9b83ff;
+  --cyan: #65d9ed;
+  --green: #70e0b0;
+  --red: #ff7d91;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; overflow-x: hidden; color: var(--text);
+  background: radial-gradient(ellipse at 50% -20%, #28264d 0%, var(--bg) 52%);
+  font-family: "DM Sans", sans-serif;
+}
+button { font: inherit; }
+.ambient { position: fixed; width: 360px; height: 360px; border-radius: 50%; filter: blur(110px); opacity: .15; pointer-events: none; }
+.ambient-one { background: #7657ff; top: 12%; left: -220px; }
+.ambient-two { background: #31bcd0; right: -230px; bottom: 8%; }
+.app-shell { width: min(920px, calc(100% - 36px)); margin: 0 auto; position: relative; z-index: 1; }
+.topbar { height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font: 700 13px "Space Grotesk", sans-serif; letter-spacing: 1.5px; }
+.brand b { color: var(--purple); }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; background: #282448; border: 1px solid #51447e; border-radius: 11px; font-size: 19px; }
+.top-pill { color: #b8c0d8; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; border: 1px solid var(--line); border-radius: 30px; padding: 9px 13px; }
+.live-dot { display: inline-block; width: 7px; height: 7px; margin-right: 7px; background: var(--green); border-radius: 50%; box-shadow: 0 0 12px var(--green); }
+.hero { text-align: center; padding: 46px 0 28px; }
+.eyebrow { margin: 0 0 10px; color: var(--purple); font-size: 10px; font-weight: 800; letter-spacing: 2.5px; }
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 10px; font: 700 clamp(30px, 5vw, 48px)/1.1 "Space Grotesk", sans-serif; letter-spacing: -2px; }
+h1 span { color: var(--purple); }
+.subtitle { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+.match-card, .arena-card { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 20px 70px rgba(0,0,0,.2); backdrop-filter: blur(18px); }
+.match-card { display: grid; grid-template-columns: 1fr .8fr 1fr; align-items: center; padding: 22px 28px; margin-bottom: 18px; }
+.score-side { text-align: center; }
+.avatar { width: 38px; height: 38px; display: grid; place-items: center; margin: 0 auto 8px; border-radius: 13px; font: 800 10px "Space Grotesk", sans-serif; letter-spacing: .5px; }
+.player-avatar { color: var(--cyan); background: rgba(101,217,237,.12); border: 1px solid rgba(101,217,237,.25); }
+.cpu-avatar { color: #c0aaff; background: rgba(155,131,255,.13); border: 1px solid rgba(155,131,255,.25); }
+.score-name { margin: 0 0 1px; color: #c1c7dc; font-size: 10px; font-weight: 800; letter-spacing: 1.8px; }
+.score-number { font: 700 42px "Space Grotesk", sans-serif; line-height: 1.15; }
+.score-label { color: #69728f; font-size: 9px; font-weight: 800; letter-spacing: 2px; }
+.score-center { text-align: center; }
+.round-label { color: #727b9b; font-size: 9px; font-weight: 800; letter-spacing: 1.8px; }
+.versus { color: #fff; font: 700 25px "Space Grotesk", sans-serif; margin: 3px 0; }
+.target { color: #8e97b2; font-size: 9px; letter-spacing: 1.5px; }
+.target b { color: var(--purple); }
+.arena-card { padding: 26px 30px 20px; }
+.arena-heading { display: flex; align-items: center; justify-content: space-between; }
+.arena-heading h2 { margin: 0; font: 600 21px "Space Grotesk", sans-serif; }
+.round-counter { padding: 8px 12px; color: #8f98b5; background: #202640; border: 1px solid var(--line); border-radius: 9px; font-size: 9px; font-weight: 800; letter-spacing: 1.3px; }
+.round-counter b { color: white; margin-left: 5px; }
+.battlefield { display: grid; grid-template-columns: 1fr 56px 1fr; align-items: center; min-height: 190px; margin: 18px 0 12px; border-radius: 16px; background: linear-gradient(110deg, rgba(101,217,237,.045), rgba(155,131,255,.055)); border: 1px solid rgba(255,255,255,.045); }
+.fighter { text-align: center; min-width: 0; }
+.fighter-label { color: #8b94b1; font-size: 9px; font-weight: 800; letter-spacing: 2px; }
+.fighter-choice { display: grid; place-items: center; width: 92px; height: 92px; margin: 9px auto 6px; border-radius: 25px; background: #242a45; border: 1px solid rgba(255,255,255,.1); box-shadow: inset 0 1px rgba(255,255,255,.05); }
+.fighter-choice img { width: 65px; height: 65px; object-fit: contain; }
+.question-mark { color: #69728f; font: 500 48px "Space Grotesk", sans-serif; }
+.fighter-caption { color: #858eaa; font-size: 11px; }
+.battle-divider { display: grid; place-items: center; height: 100%; border-left: 1px dashed rgba(255,255,255,.1); border-right: 1px dashed rgba(255,255,255,.1); }
+.battle-divider span { color: #7d86a4; font: 700 13px "Space Grotesk", sans-serif; }
+.result-banner { min-height: 42px; display: flex; align-items: center; justify-content: center; gap: 9px; margin: 14px 0 18px; padding: 10px 14px; color: #c5cbe0; background: #202640; border: 1px solid var(--line); border-radius: 11px; font-size: 12px; font-weight: 600; text-align: center; }
+.result-icon { color: var(--purple); }
+.result-banner.win { color: var(--green); border-color: rgba(112,224,176,.25); background: rgba(112,224,176,.07); }
+.result-banner.lose { color: var(--red); border-color: rgba(255,125,145,.25); background: rgba(255,125,145,.07); }
+.result-banner.tie { color: var(--cyan); }
+.choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.choice-button { min-width: 0; padding: 14px 8px 13px; color: var(--text); cursor: pointer; border: 1px solid var(--line); border-radius: 15px; background: #202640; transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+.choice-button:hover:not(:disabled) { transform: translateY(-4px); border-color: rgba(155,131,255,.65); background: #292c4a; }
+.choice-button:focus-visible, .reset-button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.choice-button:disabled { opacity: .42; cursor: not-allowed; }
+.choice-image { width: 58px; height: 54px; display: grid; place-items: center; margin: 0 auto 7px; }
+.choice-image img { width: 100%; height: 100%; object-fit: contain; }
+.fallback-emoji { display: none; font-size: 39px; }
+.choice-image.emoji-fallback .fallback-emoji { display: block; }
+.fallback-emoji .fallback-emoji { display: block; }
+.choice-title { display: block; font: 700 13px "Space Grotesk", sans-serif; }
+.choice-hint { display: block; margin-top: 3px; color: #7f89a7; font-size: 9px; }
+.bottom-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.bottom-actions p { margin: 0; color: #8992ad; font-size: 11px; }
+.reset-button { padding: 9px 12px; color: #c9c1ff; cursor: pointer; border: 1px solid rgba(155,131,255,.28); border-radius: 9px; background: rgba(155,131,255,.08); font-size: 11px; font-weight: 700; transition: background .18s; }
+.reset-button:hover { background: rgba(155,131,255,.17); }
+footer { display: flex; justify-content: space-between; padding: 20px 4px 28px; color: #606985; font-size: 8px; font-weight: 800; letter-spacing: 1.5px; }
+.pulse { animation: pulse .32s ease; }
+@keyframes pulse { 50% { transform: scale(1.08) rotate(-3deg); } }
+@media (max-width: 600px) {
+  .app-shell { width: min(100% - 22px, 480px); }
+  .topbar { height: 64px; }
+  .hero { padding: 34px 0 22px; }
+  .subtitle { max-width: 300px; margin: 0 auto; line-height: 1.5; }
+  .match-card { padding: 17px 10px; grid-template-columns: 1fr .7fr 1fr; }
+  .score-number { font-size: 35px; }
+  .arena-card { padding: 20px 14px 15px; }
+  .arena-heading h2 { font-size: 18px; }
+  .battlefield { min-height: 164px; grid-template-columns: 1fr 38px 1fr; }
+  .fighter-choice { width: 76px; height: 76px; border-radius: 20px; }
+  .fighter-choice img { width: 55px; height: 55px; }
+  .choices { gap: 7px; }
+  .choice-button { padding: 12px 4px; }
+  .choice-hint { font-size: 8px; }
+  footer { font-size: 7px; letter-spacing: 1px; }
+}

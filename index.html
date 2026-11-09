@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101322">
+  <meta name="description" content="Play Rock Paper Scissors against the computer. First to 10 wins!">
+  <title>Rock Paper Scissors — The Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Rock Paper Scissors home">
+        <span class="brand-mark">✊</span>
+        <span>THE <b>ARENA</b></span>
+      </a>
+      <div class="top-pill"><span class="live-dot"></span> LOCAL MATCH</div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">THE CLASSIC SHOWDOWN</p>
+      <h1>Rock. Paper. <span>Scissors.</span></h1>
+      <p class="subtitle">One opponent. Three choices. First to 10 takes the crown.</p>
+    </section>
+
+    <section class="match-card" aria-label="Match scoreboard">
+      <div class="score-side">
+        <div class="avatar player-avatar">YOU</div>
+        <p class="score-name">PLAYER</p>
+        <div class="score-number" id="player-score">0</div>
+        <div class="score-label">WINS</div>
+      </div>
+      <div class="score-center">
+        <div class="round-label">MATCH SCORE</div>
+        <div class="versus">VS</div>
+        <div class="target">FIRST TO <b>10</b></div>
+      </div>
+      <div class="score-side">
+        <div class="avatar cpu-avatar">CPU</div>
+        <p class="score-name">COMPUTER</p>
+        <div class="score-number" id="computer-score">0</div>
+        <div class="score-label">WINS</div>
+      </div>
+    </section>
+
+    <section class="arena-card">
+      <div class="arena-heading">
+        <div>
+          <p class="eyebrow">MAKE YOUR MOVE</p>
+          <h2>Choose your weapon</h2>
+        </div>
+        <div class="round-counter">ROUND <b id="round-number">1</b></div>
+      </div>
+
+      <div class="battlefield">
+        <div class="fighter">
+          <span class="fighter-label">YOU</span>
+          <div class="fighter-choice" id="player-choice"><span class="question-mark">?</span></div>
+          <span class="fighter-caption" id="player-caption">Waiting for your move</span>
+        </div>
+        <div class="battle-divider"><span>VS</span></div>
+        <div class="fighter">
+          <span class="fighter-label">COMPUTER</span>
+          <div class="fighter-choice" id="computer-choice"><span class="question-mark">?</span></div>
+          <span class="fighter-caption" id="computer-caption">Ready to play</span>
+        </div>
+      </div>
+
+      <div class="result-banner" id="result-banner" role="status" aria-live="polite">
+        <span class="result-icon">✦</span>
+        <span id="result-text">Pick a move to start the match!</span>
+      </div>
+
+      <div class="choices" id="choices">
+        <button class="choice-button" data-choice="rock" type="button">
+          <span class="choice-image"><img src="stone.png" alt="" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')"><span class="fallback-emoji">✊</span></span>
+          <span class="choice-title">Rock</span>
+          <span class="choice-hint">Crushes scissors</span>
+        </button>
+        <button class="choice-button" data-choice="paper" type="button">
+          <span class="choice-image"><img src="paper.png" alt="" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')"><span class="fallback-emoji">✋</span></span>
+          <span class="choice-title">Paper</span>
+          <span class="choice-hint">Covers rock</span>
+        </button>
+        <button class="choice-button" data-choice="scissors" type="button">
+          <span class="choice-image"><img src="scissors.png" alt="" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback')"><span class="fallback-emoji">✌️</span></span>
+          <span class="choice-title">Scissors</span>
+          <span class="choice-hint">Cuts paper</span>
+        </button>
+      </div>
+
+      <div class="bottom-actions">
+        <p id="match-status">Choose a move. Good luck!</p>
+        <button class="reset-button" id="reset-button" type="button">↻ <span>Restart match</span></button>
+      </div>
+    </section>
+
+    <footer>
+      <span>BUILT FOR THE LOVE OF THE GAME</span>
+      <span>✦ &nbsp; BEST OF THE BATTLE</span>
+    </footer>
+  </main>
+</body>
+</html>
